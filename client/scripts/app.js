@@ -24,6 +24,7 @@ var App = {
 
       callback();
     });
+    MessagesView.render();
   },
 
   startSpinner: function() {
