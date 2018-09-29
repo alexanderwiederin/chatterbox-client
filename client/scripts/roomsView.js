@@ -7,6 +7,11 @@ var RoomsView = {
   },
 
   render: function() {
+  },
+  
+  renderRoom: function(roomName) {
+    var roomElement = Rooms.render({roomName: roomName});
+    $(roomElement).appendTo(RoomsView.$select);
   }
 
 };
