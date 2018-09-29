@@ -4,6 +4,7 @@ var RoomsView = {
   $select: $('#rooms select'),
 
   initialize: function() {
+    RoomsView.$button.on('click', Rooms.add);
   },
 
   render: function() {

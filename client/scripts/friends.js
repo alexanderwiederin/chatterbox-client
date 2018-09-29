@@ -1,7 +1,14 @@
 var Friends = {
   
-  render: _.template(`
-        <div><%= username %></div>
-    `)
+  $chats: $('#chats'),
+  
+  initialize: function() {
+    
+  },
+  
+  toggleStatus: function() {
+    console.log(this.val());
+    console.log(this.text());
+  }
   
 };
