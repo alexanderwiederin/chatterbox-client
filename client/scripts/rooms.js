@@ -1,7 +1,8 @@
 var Rooms = {
   
+  
   render: _.template(`
-        <div><%= roomName %></div>
+        <option value=<%- roomName %>><%- roomName %></option>
     `),
   
   add: () => {

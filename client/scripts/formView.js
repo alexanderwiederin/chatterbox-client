@@ -8,12 +8,20 @@ var FormView = {
 
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
-    event.preventDefault();
+    // event.preventDefault();
     
     var message = $('#message').val();
     
+    var messageObj = {
+      username: window.location.search.substr(10) || 'anonymous',
+      text: message || '',
+      roomName: 'lobby'
+    };
+    
+    
     console.log(message);
-    Parse.create(message);
+    
+    Parse.create(messageObj);
     
     console.log('click!');
   },

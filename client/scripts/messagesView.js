@@ -1,13 +1,17 @@
 var MessagesView = {
 
   $chats: $('#chats'),
+  $button: $('.refresh'),
   
 
   initialize: function() {
-    
+    MessagesView.$button.on('click', () => {
+      App.startSpinner();
+      App.fetch(App.stopSpinner);
+    });
   },
 
-  render: function(data) {    
+  render: function(data) {
   },
   
   renderMessage: function(message) {
