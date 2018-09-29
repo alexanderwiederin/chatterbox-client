@@ -24,10 +24,11 @@ var App = {
       console.log(data);
       for (let message of data.results) {
         if (!message.username || !message.roomname || message.text === undefined) {
-          debugger;
           continue;
         }
         MessagesView.renderMessage(message);
+        RoomsView.renderRoom(message.roomname);
+        console.log(message.roomname);
       }
       callback();
     });

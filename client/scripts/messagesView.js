@@ -5,7 +5,7 @@ var MessagesView = {
   
 
   initialize: function() {
-    MessagesView.$button.on('click', () => {
+    this.$button.on('click', () => {
       App.startSpinner();
       App.fetch(App.stopSpinner);
     });
@@ -18,6 +18,11 @@ var MessagesView = {
     var messageElement = Messages.render(message);
     $(messageElement).appendTo(MessagesView.$chats);
     $('.username').on('click', Friends.toggleStatus.bind($('.username')));
+  },
+  
+  renderByRoom: function(roomName) {
+    // App.startSpinner();
+    // RoomsView.$
   }
 
 };

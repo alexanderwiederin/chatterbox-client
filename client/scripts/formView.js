@@ -15,7 +15,7 @@ var FormView = {
     var messageObj = {
       username: window.location.search.substr(10) || 'anonymous',
       text: message || '',
-      roomName: 'lobby'
+      roomName: 'default'
     };
     
     
