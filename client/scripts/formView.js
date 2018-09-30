@@ -14,7 +14,7 @@ var FormView = {
     var messageObj = {
       username: App.username || 'anonymous',
       text: message || '',
-      roomName: $("select option:selected").text() || 'default'
+      roomName: $('select option:selected').text() || 'default'
     };
     
     
