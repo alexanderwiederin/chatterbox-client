@@ -6,7 +6,6 @@ var RoomsView = {
 
   initialize: function() {
     RoomsView.$button.on('click', Rooms.add);
-    RoomsView.$select.on('input', MessagesView.renderByRoom(RoomsView.$select.value));
   },
 
   render: function() {
@@ -26,5 +25,4 @@ var RoomsView = {
       $(roomElement).appendTo(RoomsView.$select);  
     }
   }
-
 };

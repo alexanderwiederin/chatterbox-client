@@ -8,13 +8,15 @@ var App = {
     App.username = window.location.search.substr(10);
 
     FormView.initialize();
-    RoomsView.initialize();
     MessagesView.initialize();
+    RoomsView.initialize();
 
     // Fetch initial batch of messages
     App.startSpinner();
-    App.fetch(App.stopSpinner);
-
+    App.fetch(() => {
+      App.stopSpinner;
+      RoomsView.$select.on('change', MessagesView.renderByRoom($('option:selected').text()));
+    });
   },
 
   fetch: function(callback = ()=>{}) {
@@ -23,12 +25,10 @@ var App = {
 
       console.log(data);
       for (let message of data.results) {
-        if (!message.username || !message.roomname || message.text === undefined) {
-          continue;
-        }
+        Messages.conform(message);
+        Messages._data[message.objectId] = message;
         MessagesView.renderMessage(message);
         RoomsView.renderRoom(message.roomname);
-        console.log(message.roomname);
       }
       callback();
     });

@@ -7,6 +7,7 @@ var MessagesView = {
   initialize: function() {
     this.$button.on('click', () => {
       App.startSpinner();
+      MessagesView.$chats.empty();
       App.fetch(App.stopSpinner);
     });
   },
@@ -21,8 +22,13 @@ var MessagesView = {
   },
   
   renderByRoom: function(roomName) {
-    // App.startSpinner();
-    // RoomsView.$
+    
+    App.startSpinner();
+    MessagesView.$chats.empty();
+    Messages.items().filter(message => message.roomname === roomName).forEach((message) => {
+      MessagesView.renderMessage(message);
+    });
+    App.stopSpinner();
   }
 
 };
